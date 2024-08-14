@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
     return (
-        <nav className="bg-blue-600 p-4 text-white">
+        <nav className="bg-gray-800 p-4 text-white">
             <ul className="flex space-x-4">
                 <li>
                     <Link to="/" className="hover:text-gray-300">Home</Link>
@@ -14,9 +14,9 @@ const Navbar: React.FC = () => {
                 <li>
                     <Link to="/courses" className="hover:text-gray-300">Courses</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link to="/spark-ada-basics" className="hover:text-gray-300">SPARK Ada</Link>
-                </li>
+                </li> */}
             </ul>
         </nav>
     );
