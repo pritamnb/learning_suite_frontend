@@ -1,12 +1,14 @@
+
 import { configureStore } from '@reduxjs/toolkit';
+import sparkAdaFilesReducer from './sparkAdaFilesReducer'; // update the import for the reducer
 import sparkAdaReducer from './sparkAdaReducer';
 
 const store = configureStore({
     reducer: {
+        sparkAdaFiles: sparkAdaFilesReducer,
         sparkAda: sparkAdaReducer,
+        // Add other reducers here if needed
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
-    devTools: process.env.NODE_ENV !== 'production',
 });
 
 export type AppState = ReturnType<typeof store.getState>;
