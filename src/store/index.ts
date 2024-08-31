@@ -7,7 +7,6 @@ const store = configureStore({
     reducer: {
         sparkAdaFiles: sparkAdaFilesReducer,
         sparkAda: sparkAdaReducer,
-        // Add other reducers here if needed
     },
 });
 

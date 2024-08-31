@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import CodeEditor from '../../components/CodeEditor';
 import Button from '../../components/Button';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 
 const Declarative: React.FC = () => {
     const [code, setCode] = useState<string>(`with Ada.Text_IO; use Ada.Text_IO;
@@ -34,8 +32,7 @@ end Example;`);
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow p-8">
+            <main className="flex-grow">
                 <h1 className="text-4xl mb-4">Declarative in Ada</h1>
                 <CodeEditor value={code} onChange={handleCodeChange} language="ada" height="400px" />
                 <Button onClick={handleRunCode} disabled={loading}>
@@ -53,7 +50,6 @@ end Example;`);
                     </div>
                 )}
             </main>
-            <Footer />
         </div>
     );
 };
