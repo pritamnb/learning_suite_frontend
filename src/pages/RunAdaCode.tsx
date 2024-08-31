@@ -34,8 +34,7 @@ end Hello;`);
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow p-8">
+            <main className="flex-grow">
                 <h1 className="text-4xl mb-4">Run Ada Code</h1>
                 <CodeEditor value={code} onChange={handleCodeChange} language="ada" height="400px" />
                 <Button onClick={handleRunCode} disabled={loading}>
@@ -53,7 +52,6 @@ end Hello;`);
                     </div>
                 )}
             </main>
-            <Footer />
         </div>
     );
 };

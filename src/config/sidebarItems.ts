@@ -1,4 +1,3 @@
-// import ExpandableSidebarItem from '../components/ExpandableSidebarItem';
 
 interface SidebarItem {
     name: string;

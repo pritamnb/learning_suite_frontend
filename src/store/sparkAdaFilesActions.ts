@@ -19,7 +19,7 @@ export const runSparkAdaFiles = (
         formData.append('bodyFile', new Blob([bodyFileContent], { type: 'text/plain' }), 'main.adb');
         formData.append('verificationLevel', verificationLevel);
 
-        const response = await axios.post('http://localhost:8000/api/run-spark', formData, {
+        const response = await axios.post('http://localhost:8000/api/prove', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

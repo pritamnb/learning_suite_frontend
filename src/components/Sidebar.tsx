@@ -1,54 +1,50 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import ExpandableSidebarItem from './ExpandibleSidebarItems';
 import { sidebarItems } from '../config/sidebarItems';
-import { Link } from 'react-router-dom';
 
-const Sidebar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(true);
+// Define the props type for the Sidebar component
+interface SidebarProps {
+    isOpen: boolean;
+    toggleSidebar: () => void;
+}
 
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
-
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     return (
-        <div className="flex">
-            <div className={`bg-gray-800 text-white ${isOpen ? 'w-64' : 'w-16'} duration-300 min-h-screen`}>
-                <div className="flex items-center p-3 bg-gray-700 hover:bg-gray-600">
-                    {/* Hamburger Icon */}
-                    <div className="cursor-pointer space-y-1" onClick={toggleSidebar}>
-                        <div className="w-6 h-0.5 bg-white"></div>
-                        <div className="w-6 h-0.5 bg-white"></div>
-                        <div className="w-6 h-0.5 bg-white"></div>
-                    </div>
-                    {/* Title */}
-                    {isOpen && (
-                        <span className="ml-4 text-xl font-bold">
-                            Learn SPARK Ada
-                        </span>
-                    )}
+        <div className={`z-10 min-h-screen bg-gray-800 text-white  flex-none duration-300 ${isOpen ? 'w-64' : 'w-16'}`}>
+            <div className=" flex fixed top-0 left-0 items-center pl-4 pt-4 bg-gray-800">
+                <div className="cursor-pointer space-y-1" onClick={toggleSidebar}>
+                    <div className="w-6 h-0.5 bg-white"></div>
+                    <div className="w-6 h-0.5 bg-white"></div>
+                    <div className="w-6 h-0.5 bg-white"></div>
                 </div>
-                <ul className={`mt-4 space-y-2 ${!isOpen && 'hidden'}`}>
-                    {sidebarItems.map((item: any, index) => (
-                        item?.subItems ? (
-                            <ExpandableSidebarItem
-                                key={index}
-                                name={item?.name}
-                                subItems={item?.subItems}
-                            />
-                        ) : (
-                            <li key={index}>
-                                <Link
-                                    to={item.path || '#'}
-                                    className="block py-2 px-4 hover:bg-gray-600"
-                                >
-                                    {item.name}
-                                </Link>
-                            </li>
-                        )
-                    ))}
-                </ul>
+                {isOpen && (
+                    <span className="ml-4 text-xl font-bold">
+                        Learn SPARK Ada
+                    </span>
+                )}
             </div>
-
+            <ul className="mt-16 space-y-2">
+                {sidebarItems.map((item: any, index) => (
+                    item?.subItems ? (
+                        <ExpandableSidebarItem
+                            key={index}
+                            name={item.name}
+                            subItems={item.subItems}
+                            isOpen={isOpen}
+                        />
+                    ) : (
+                        <li key={index} className="flex  items-center">
+                            <Link
+                                to={item.path || '#'}
+                                className="block w-full py-2 px-4 hover:bg-gray-600 flex items-center"
+                            >
+                                {isOpen && <span>{item.name}</span>}
+                            </Link>
+                        </li>
+                    )
+                ))}
+            </ul>
         </div>
     );
 };

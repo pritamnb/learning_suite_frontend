@@ -5,12 +5,10 @@ import Footer from '../components/Footer';
 const Courses: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow p-8">
+            <main className="flex-grow">
                 <h1 className="text-4xl mb-4">Courses</h1>
 
             </main>
-            <Footer />
         </div>
     );
 };

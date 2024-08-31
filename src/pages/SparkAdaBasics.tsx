@@ -30,8 +30,7 @@ end Increment;`,
 const SparkAdaBasics: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow p-8">
+            <main className="flex-grow">
                 <h1 className="text-4xl mb-4">Basics of SPARK Ada</h1>
                 <p className="mb-4">
                     SPARK is a subset of the Ada programming language designed for high-integrity and high-assurance systems. It includes a range of features for writing reliable and maintainable software.
@@ -39,7 +38,6 @@ const SparkAdaBasics: React.FC = () => {
                 <h2 className="text-2xl mb-2">Sample Files</h2>
                 <FileViewer files={files} />
             </main>
-            <Footer />
         </div>
     );
 };
