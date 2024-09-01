@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import FileViewer from '../components/FileViewer';
 
 const files = [

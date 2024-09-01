@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import CodeEditor from '../../components/CodeEditor';
+import CodeEditor from '../../components/codeEditor';
 import Button from '../../components/Button';
 
 const Case: React.FC = () => {
