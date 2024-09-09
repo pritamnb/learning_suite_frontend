@@ -1,0 +1,47 @@
+[
+    {
+        "Section Name" : "Imperative Language",
+        "topics" : [
+            {
+                "topic" : "Hello world",
+                "description" : "Here's a very simple imperative Ada program:",
+                "code" : "with Ada.Text_IO;\r\n\r\nprocedure Greet is\r\nbegin\r\n   --  Print \"Hello, World!\" to the screen\r\n   Ada.Text_IO.Put_Line (\"Hello, World!\");\r\nend Greet;"
+            },
+            {
+                "topic" : "If/Then/Else",
+                "description" : "This section describes Ada's if statement and introduces several other fundamental language facilities including integer I/O, data declarations, and subprogram parameter modes.",
+                "code" : "with Ada.Text_IO;         use Ada.Text_IO;\r\nwith Ada.Integer_Text_IO; use Ada.Integer_Text_IO;\r\n\r\nprocedure Check_Positive is\r\n   N : Integer;\r\nbegin\r\n   --  Put a String\r\n   Put (\"Enter an integer value: \");\r\n\r\n   --  Read in an integer value\r\n   Get (N);\r\n\r\n   if N > 0 then\r\n      --  Put an Integer\r\n      Put (N);\r\n      Put_Line (\" is a positive number\");\r\n   end if;\r\nend Check_Positive;"
+            },
+            {
+                "topic" : "For loops",
+                "description" : "The first kind of loop is the for loop, which allows iteration through a discrete range.",
+                "code" : "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Greet_5a is\r\nbegin\r\n   for I in 1 .. 5 loop\r\n      --  Put_Line is a procedure call\r\n      Put_Line (\"Hello, World!\"\r\n                  & Integer'Image (I));\r\n      --        ^ Procedure parameter\r\n   end loop;\r\nend Greet_5a;"
+            },
+            {
+                "topic" : "For loops with range",
+                "description" : "",
+                 "code" : "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Greet_5a_Reverse is\r\nbegin\r\n   for I in reverse 1 .. 5 loop\r\n      Put_Line (\"Hello, World!\"\r\n                & Integer'Image (I));\r\n   end loop;\r\nend Greet_5a_Reverse;"
+            },
+            {
+                "topic" : "Bare Loops",
+                "description" : "The simplest loop in Ada is the bare loop, which forms the foundation of the other kinds of Ada loops.",
+                "code" : "with Ada.Text_IO;\r\n\r\nprocedure Greet is\r\nbegin\r\n   --  Print \"Hello, World!\" to the screen\r\n   Ada.Text_IO.Put_Line (\"Hello, World!\");\r\nend Greet;"
+            },
+            {
+                "topic" : "While Loops",
+                "description" : "The last kind of loop in Ada is the while loop.",
+                "code" : "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Greet_5c is\r\n   I : Integer := 1;\r\nbegin\r\n   --  Condition must be a Boolean value\r\n   --  (no Integers).\r\n   --  Operator \"<=\" returns a Boolean\r\n   while I <= 5 loop\r\n      Put_Line (\"Hello, World!\"\r\n                & Integer'Image (I));\r\n\r\n      I := I + 1;\r\n   end loop;\r\nend Greet_5c;"
+            },
+            {
+                "topic" : "Case statement",
+                "description" : "Ada's case statement is similar to the C and C++ switch statement, but with some important differences.",
+                "code" : "with Ada.Text_IO;         use Ada.Text_IO;\r\nwith Ada.Integer_Text_IO; use Ada.Integer_Text_IO;\r\n\r\nprocedure Check_Direction is\r\n   N : Integer;\r\nbegin\r\n   loop\r\n      Put (\"Enter an integer value: \");\r\n      Get (N);\r\n      Put (N);\r\n\r\n      case N is\r\n         when 0 | 360 =>\r\n            Put_Line\r\n              (\" is due north\");\r\n         when 1 .. 89 =>\r\n            Put_Line\r\n              (\" is in the northeast quadrant\");\r\n         when 90 =>\r\n            Put_Line\r\n              (\" is due east\");\r\n         when 91 .. 179 =>\r\n            Put_Line\r\n              (\" is in the southeast quadrant\");\r\n         when 180 =>\r\n            Put_Line\r\n              (\" is due south\");\r\n         when 181 .. 269 =>\r\n            Put_Line\r\n              (\" is in the southwest quadrant\");\r\n         when 270 =>\r\n            Put_Line\r\n              (\" is due west\");\r\n         when 271 .. 359 =>\r\n            Put_Line\r\n              (\" is in the northwest quadrant\");\r\n         when others =>\r\n            Put_Line\r\n              (\" Au revoir\");\r\n            exit;\r\n      end case;\r\n   end loop;\r\nend Check_Direction;"
+            },
+            {
+                "topic" : "Declarative regions",
+                "description" : "As mentioned earlier, Ada draws a clear syntactic separation between declarations, which introduce names for entities that will be used in the program, and statements, which perform the processing. The areas in the program where declarations may appear are known as declarative regions.\r\n\r\nIn any subprogram, the section between the is and the begin is a declarative region. You can have variables, constants, types, inner subprograms, and other entities there.",
+                "code" : "with Ada.Text_IO;\r\n\r\nprocedure Greet is\r\nbegin\r\n   --  Print \"Hello, World!\" to the screen\r\n   Ada.Text_IO.Put_Line (\"Hello, World!\");\r\nend Greet;"
+            }
+        ]
+    }
+]

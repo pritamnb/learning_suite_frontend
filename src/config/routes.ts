@@ -10,6 +10,7 @@ import IntroductionSparkAdaProofOfProgramIntegrity from '../pages/IntroductionSp
 import RunAdaCode from '../pages/RunAdaCode';
 import SparkAdaBasics from '../pages/SparkAdaBasics';
 import GnatStudioGuide from '../pages/installation/gnatInstallation';
+import CodePlayground from '../pages/CodePlayground';
 
 interface RouteConfig {
     path: string;
@@ -22,6 +23,7 @@ export const routes: RouteConfig[] = [
     { path: '/introduction-ada/if-then-else', component: IntroductionAdaIfThenElse },
     { path: '/introduction-ada/case', component: IntroductionAdaCase },
     { path: '/introduction-ada/conditional', component: IntroductionAdaConditional },
+    { path: '/introduction-ada/play', component: CodePlayground },
     { path: '/introduction-ada/declarative', component: IntroductionAdaDeclarative },
     { path: '/introduction-spark-ada/overview', component: IntroductionSparkAdaOverview },
     { path: '/introduction-spark-ada/flow-analysis', component: IntroductionSparkAdaFlowAnalysis },
