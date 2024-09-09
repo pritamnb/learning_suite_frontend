@@ -9,6 +9,7 @@ import IntroductionSparkAdaFlowAnalysis from '../pages/IntroductionSparkAda/Flow
 import IntroductionSparkAdaProofOfProgramIntegrity from '../pages/IntroductionSparkAda/ProofOfProgramIntegrity';
 import RunAdaCode from '../pages/RunAdaCode';
 import SparkAdaBasics from '../pages/SparkAdaBasics';
+import GnatStudioGuide from '../pages/installation/gnatInstallation';
 
 interface RouteConfig {
     path: string;
@@ -27,4 +28,5 @@ export const routes: RouteConfig[] = [
     { path: '/introduction-spark-ada/proof-of-program-integrity', component: IntroductionSparkAdaProofOfProgramIntegrity },
     { path: '/run-ada-code', component: RunAdaCode },
     { path: '/spark-ada-basics', component: SparkAdaBasics },
+    { path: '/gnat-studio-guide', component: GnatStudioGuide }
 ];

@@ -5,7 +5,7 @@ const files = [
     {
         name: 'increment.ads',
         language: 'ada',
-        content: `procedure Increment
+        content: `procedure Main
   (X : in out Integer)
 with
   Global  => null,
@@ -16,12 +16,12 @@ with
     {
         name: 'increment.adb',
         language: 'ada',
-        content: `procedure Increment
+        content: `procedure Main
   (X : in out Integer)
 is
 begin
   X := X + 1;
-end Increment;`,
+end Main;`,
     },
 ];
 
@@ -34,7 +34,7 @@ const SparkAdaBasics: React.FC = () => {
                     SPARK is a subset of the Ada programming language designed for high-integrity and high-assurance systems. It includes a range of features for writing reliable and maintainable software.
                 </p>
                 <h2 className="text-2xl mb-2">Sample Files</h2>
-                <FileViewer files={files} />
+                <FileViewer files={files} buttonName={'Prove'} />
             </main>
         </div>
     );
