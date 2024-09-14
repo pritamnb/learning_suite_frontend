@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CodeEditor from '../../components/codeEditor';
-import Button from '../../components/Button';
+import CodeEditor from '../components/codeEditor';
+import Button from '../components/Button';
 
-const Conditional: React.FC = () => {
-    const [code, setCode] = useState<string>(`with Ada.Text_IO; use Ada.Text_IO;
-procedure Example is
-begin
-   Put_Line("This is an If/Then/Else example in Ada");
-end Example;`);
+export interface ChildComponentProps {
+    topicName: string;
+    bootStrapCode: string;
+    description: string; 
+}
+
+const Playground: React.FC<ChildComponentProps> = ({topicName, bootStrapCode, description}) => {
+    const [code, setCode] = useState<string>(bootStrapCode);
     const [output, setOutput] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
+
+    useEffect(() => {
+        setCode(bootStrapCode);
+      }, [bootStrapCode]);
 
     const handleCodeChange = (value: string | undefined) => {
         setCode(value || '');
@@ -33,7 +39,8 @@ end Example;`);
     return (
         <div className="flex flex-col min-h-screen">
             <main className="flex-grow">
-                <h1 className="text-4xl mb-4">Conditional in Ada</h1>
+                <h1 className="text-4xl mb-4">{topicName}</h1>
+                <h3>{description}</h3>
                 <CodeEditor value={code} onChange={handleCodeChange} language="ada" height="400px" />
                 <Button onClick={handleRunCode} disabled={loading}>
                     {loading ? 'Running...' : 'Run Code'}
@@ -54,4 +61,4 @@ end Example;`);
     );
 };
 
-export default Conditional;
+export default Playground;

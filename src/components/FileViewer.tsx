@@ -13,9 +13,10 @@ interface File {
 
 interface FileViewerProps {
     files: File[];
+    buttonName?: String;
 }
 
-const FileViewer: React.FC<FileViewerProps> = ({ files }) => {
+const FileViewer: React.FC<FileViewerProps> = ({ files, buttonName = 'Run Code' }) => {
     const [activeFileIndex, setActiveFileIndex] = useState(0);
     const [fileContents, setFileContents] = useState(files.map(file => file.content));
     const [verificationLevel, setVerificationLevel] = useState('0');
@@ -97,16 +98,16 @@ const FileViewer: React.FC<FileViewerProps> = ({ files }) => {
                     )}
                 </div>
                 <Button onClick={handleRunCode} disabled={loading || verificationError !== null}>
-                    {loading ? 'Running...' : 'Run Code'}
+                    {loading ? 'Running...' : buttonName}
                 </Button>
                 {output && (
-                    <div className="mt-4 p-4 bg-gray-100 border border-gray-300 rounded">
+                    <div className="mt-4 mb-10 p-4 bg-gray-100 border border-gray-300 rounded">
                         <h3 className="text-xl mb-2">Output</h3>
                         <pre>{output}</pre>
                     </div>
                 )}
                 {error && (
-                    <div className="mt-4 p-4 bg-red-100 border border-red-300 rounded">
+                    <div className="mt-4 mb-10 p-4 bg-red-100 border border-red-300 rounded">
                         <h3 className="text-xl mb-2 text-red-700">{error?.details?.error}</h3>
                         <pre className="overflow-scroll">{error?.details?.details}</pre>
                     </div>

@@ -9,6 +9,8 @@ import IntroductionSparkAdaFlowAnalysis from '../pages/IntroductionSparkAda/Flow
 import IntroductionSparkAdaProofOfProgramIntegrity from '../pages/IntroductionSparkAda/ProofOfProgramIntegrity';
 import RunAdaCode from '../pages/RunAdaCode';
 import SparkAdaBasics from '../pages/SparkAdaBasics';
+import GnatStudioGuide from '../pages/installation/gnatInstallation';
+import CodePlayground from '../pages/CodePlayground';
 
 interface RouteConfig {
     path: string;
@@ -21,10 +23,12 @@ export const routes: RouteConfig[] = [
     { path: '/introduction-ada/if-then-else', component: IntroductionAdaIfThenElse },
     { path: '/introduction-ada/case', component: IntroductionAdaCase },
     { path: '/introduction-ada/conditional', component: IntroductionAdaConditional },
+    { path: '/introduction-ada/play', component: CodePlayground },
     { path: '/introduction-ada/declarative', component: IntroductionAdaDeclarative },
     { path: '/introduction-spark-ada/overview', component: IntroductionSparkAdaOverview },
     { path: '/introduction-spark-ada/flow-analysis', component: IntroductionSparkAdaFlowAnalysis },
     { path: '/introduction-spark-ada/proof-of-program-integrity', component: IntroductionSparkAdaProofOfProgramIntegrity },
     { path: '/run-ada-code', component: RunAdaCode },
     { path: '/spark-ada-basics', component: SparkAdaBasics },
+    { path: '/gnat-studio-guide', component: GnatStudioGuide }
 ];

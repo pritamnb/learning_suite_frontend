@@ -1,3 +1,4 @@
+
 import React, { useState, ReactNode } from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
@@ -11,13 +12,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
 
     return (
-        <div className="flex">
-            <Sidebar isOpen={isSidebarOpen} toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
-            <div className="flex flex-col w-full">
+        <div className="flex h-screen">
+            {/* Sidebar */}
+            <Sidebar
+                isOpen={isSidebarOpen}
+                toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+            />
+
+            {/* Main content area */}
+            <div className="flex-1 flex flex-col">
                 <Navbar isSidebarOpen={isSidebarOpen} />
-                <main className="flex-grow p-8 mt-16">
+
+                <main
+                    className={`flex-grow pr-8 bg-slate-200 mt-14 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-16'
+                        }`}
+                >
                     {children}
                 </main>
+
                 <Footer />
             </div>
         </div>

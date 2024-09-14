@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import CodeEditor from '../components/CodeEditor';
+import CodeEditor from '../components/codeEditor';
 import Button from '../components/Button';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 
 const RunAdaCode: React.FC = () => {
     const [code, setCode] = useState<string>(`with Ada.Text_IO; use Ada.Text_IO;
