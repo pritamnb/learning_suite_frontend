@@ -7,8 +7,8 @@ import {
 } from './sparkAdaFilesReducer';
 
 export const runSparkAdaFiles = (
-    specFileContent: string,
-    bodyFileContent: string,
+    specFileContent: string | any,
+    bodyFileContent: string | any,
     verificationLevel: string
 ) => async (dispatch: AppDispatch) => {
     try {

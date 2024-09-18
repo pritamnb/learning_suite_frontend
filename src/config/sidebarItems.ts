@@ -1,7 +1,7 @@
 import { FaTachometerAlt, FaBook, FaTerminal, FaPlay } from 'react-icons/fa';
 import { MdOutlineCode, MdLibraryBooks } from 'react-icons/md';
 import { IoMdSettings } from 'react-icons/io';
-
+import { FaFileAlt } from 'react-icons/fa';
 interface SidebarItem {
     name: string;
     path?: string;
@@ -11,8 +11,9 @@ interface SidebarItem {
 
 export const sidebarItems: SidebarItem[] = [
     { name: 'Dashboard', path: '/', icon: FaTachometerAlt },
-    { name: 'Courses', path: '/courses', icon: FaBook },
     { name: 'GNAT installation', path: '/gnat-studio-guide', icon: IoMdSettings },
+    { name: 'GNAT Prog Execution', path: '/gnat-studio-exe-guide', icon: FaFileAlt },
+
     {
         name: '+ Introduction to Ada',
         icon: MdOutlineCode,

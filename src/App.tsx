@@ -1,7 +1,5 @@
-
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
 import { routes } from './config/routes';
 import Layout from './components/Layout';
 
@@ -11,11 +9,13 @@ const App: React.FC = () => {
       <Layout>
         <div className="flex">
           <div className="flex-grow">
-            <Routes>
-              {routes.map((route, index) => (
-                <Route key={index} path={route.path} element={<route.component />} />
-              ))}
-            </Routes>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                {routes.map((route, index) => (
+                  <Route key={index} path={route.path} element={<route.component />} />
+                ))}
+              </Routes>
+            </Suspense>
           </div>
         </div>
       </Layout>

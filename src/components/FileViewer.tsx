@@ -6,9 +6,9 @@ import { AppState, AppDispatch } from '../store';
 import Button from './Button';
 
 interface File {
-    name: string;
-    language: string;
-    content: string;
+    name?: string;
+    language?: string;
+    content?: string;
 }
 
 interface FileViewerProps {
@@ -16,7 +16,7 @@ interface FileViewerProps {
     buttonName?: String;
 }
 
-const FileViewer: React.FC<FileViewerProps> = ({ files, buttonName = 'Run Code' }) => {
+const FileViewer: React.FC<FileViewerProps> = ({ files = [{}, {}], buttonName = 'Run Code' }) => {
     const [activeFileIndex, setActiveFileIndex] = useState(0);
     const [fileContents, setFileContents] = useState(files.map(file => file.content));
     const [verificationLevel, setVerificationLevel] = useState('0');
@@ -39,10 +39,10 @@ const FileViewer: React.FC<FileViewerProps> = ({ files, buttonName = 'Run Code' 
         const level = e.target.value;
         if (/^\d+$/.test(level)) {
             const numericLevel = parseInt(level, 10);
-            if (numericLevel >= 0 && numericLevel <= 3) {
+            if (numericLevel >= 0 && numericLevel <= 4) {
                 setVerificationError(null);
             } else {
-                setVerificationError('Verification level must be between 0 and 3');
+                setVerificationError('Verification level must be between 0 and 4');
             }
             setVerificationLevel(level);
         } else {
@@ -100,16 +100,33 @@ const FileViewer: React.FC<FileViewerProps> = ({ files, buttonName = 'Run Code' 
                 <Button onClick={handleRunCode} disabled={loading || verificationError !== null}>
                     {loading ? 'Running...' : buttonName}
                 </Button>
+
                 {output && (
-                    <div className="mt-4 mb-10 p-4 bg-gray-100 border border-gray-300 rounded">
-                        <h3 className="text-xl mb-2">Output</h3>
-                        <pre>{output}</pre>
+                    <div id="output-area" className="output-area bg-gray-100 border border-gray-300 rounded p-4 mt-4 mb-10 h-64 overflow-hidden">
+                        <div className="sticky top-0 bg-gray-100 p-2 border-b border-gray-300 z-10">
+                            <div className="output_info console_output text-xl font-semibold">
+                                Console Output:
+                            </div>
+                        </div>
+                        <div className="output_console bg-white p-2 border border-gray-200 rounded h-full overflow-y-auto mt-2">
+                            {output.split('\n').map((line, index) => (
+                                <div key={index} className="output_line">{line}</div>
+                            ))}
+                        </div>
                     </div>
                 )}
                 {error && (
-                    <div className="mt-4 mb-10 p-4 bg-red-100 border border-red-300 rounded">
-                        <h3 className="text-xl mb-2 text-red-700">{error?.details?.error}</h3>
-                        <pre className="overflow-scroll">{error?.details?.details}</pre>
+                    <div id="error-area" className="output-area bg-red-100 border border-red-300 rounded p-4 mt-4 mb-10 h-64 overflow-hidden">
+                        <div className="sticky top-0 bg-red-100 p-2 border-b border-red-300 z-10">
+                            <div className="output_info console_output text-xl font-semibold text-red-700">
+                                {error?.details?.error || "Error"}
+                            </div>
+                        </div>
+                        <div className="output_console bg-white p-2 border border-red-200 rounded">
+                            {error?.details?.details?.split('\n').map((line: any, index: any) => (
+                                <div key={index} className="output_line text-red-700">{line}</div>
+                            ))}
+                        </div>
                     </div>
                 )}
             </div>
