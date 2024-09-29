@@ -35,7 +35,7 @@ end Hello;`);
     return (
         <div className="flex flex-col min-h-screen">
             <main className="flex-grow">
-                <h1 className="text-4xl mb-4">Run Ada Code</h1>
+                <h1 className="text-4xl mb-4">Ada Playground</h1>
                 <p className='mb-4'>
                     An Ada playground is an interactive tool available directly in a web browser that lets users run, write, and test Ada code without local setup needed. Usually it comprises a code editor, syntactic highlighting, error checking, and code editing capability to compile and run Ada programs in real-time. Learning and experimenting with Ada in this environment is perfect since it offers instantaneous feedback and lets users investigate Ada's features in an easily accessible and user-friendly surroundings.
                 </p>
