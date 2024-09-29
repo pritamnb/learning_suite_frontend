@@ -1,5 +1,6 @@
 import React from 'react';
 import FileViewer from "../FileViewer";
+
 const defaultFiles = [
     {
         name: 'main.ads',
@@ -11,34 +12,34 @@ const defaultFiles = [
         language: 'ada',
         content: ''
     }
-]
+];
+
 interface File {
     name?: string;
     language?: string;
     content?: string;
 }
-interface sparAdaProps {
+
+interface SparkAdaProps {
     files: File[],
     body: string,
-    buttonName: string
+    buttonName: string,
+    exe?: string
 }
-const SparkAda: React.FC<sparAdaProps> = ({ files, body = '', buttonName = 'Run Code' }) => {
+
+const SparkAda: React.FC<SparkAdaProps> = ({ files, body = '', buttonName = 'Run Code', exe = 'examine' }) => {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col">
             <main className="flex-grow">
-                <h1 className="text-4xl mb-4">  </h1>
-                <p className="mb-4">
-                    {body &&
-                        body
-                    }
-                </p>
+                {body && <p className="mb-4">{body}</p>}
+
                 <h2 className="text-2xl mb-2">Files</h2>
                 <div>
-                    <FileViewer files={files ? files : defaultFiles} buttonName={buttonName} />
+                    <FileViewer files={files.length ? files : defaultFiles} buttonName={buttonName} exe={exe} />
                 </div>
             </main>
         </div>
     );
 };
 
-export default SparkAda
+export default SparkAda;

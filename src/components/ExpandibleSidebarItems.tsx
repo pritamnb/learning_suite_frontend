@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface ExpandableSidebarItemProps {
     name: string;
@@ -14,7 +15,7 @@ const ExpandableSidebarItem: React.FC<ExpandableSidebarItemProps> = ({ name, sub
         <div>
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="block w-full text-left py-2 px-4 hover:bg-gray-600 focus:outline-none flex items-center"
+                className="block w-full text-left py-2 px-4 hover:bg-gray-100 focus:outline-none flex items-center"
             >
                 {isOpen ? name : '+'}
             </button>
@@ -22,12 +23,15 @@ const ExpandableSidebarItem: React.FC<ExpandableSidebarItemProps> = ({ name, sub
                 <ul className="pl-4">
                     {subItems.map((subItem, index) => (
                         <li key={index}>
-                            <Link
+                            <NavLink
                                 to={subItem.path}
-                                className="block py-2 px-4 hover:bg-gray-600"
+                                className={({ isActive }) =>
+                                    `block py-2 px-4 transition-all duration-300 ${isActive ? 'bg-gray-200 text-blue-600' : 'hover:bg-gray-100'
+                                    }`
+                                }
                             >
                                 {subItem.name}
-                            </Link>
+                            </NavLink>
                         </li>
                     ))}
                 </ul>

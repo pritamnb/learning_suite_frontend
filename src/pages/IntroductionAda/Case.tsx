@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import CodeEditor from '../../components/codeEditor';
 import Button from '../../components/Button';
+import { configs } from '../../config/config';
+const { endpoint } = configs;
 
 const Case: React.FC = () => {
     const [code, setCode] = useState<string>(`with Ada.Text_IO; use Ada.Text_IO;
@@ -21,7 +23,7 @@ end Example;`);
         setLoading(true);
         setError('');
         try {
-            const response = await axios.post('http://localhost:8000/api/run-ada', { code });
+            const response = await axios.post(`${endpoint}/api/run-ada`, { code });
             setOutput(response.data.output);
         } catch (err) {
             setError('Failed to run the code');

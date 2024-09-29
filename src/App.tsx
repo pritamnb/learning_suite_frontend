@@ -7,7 +7,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <Layout>
-        <div className="flex">
+        <div className="">
           <div className="flex-grow">
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>

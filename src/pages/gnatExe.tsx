@@ -3,7 +3,7 @@ import { tutorialData } from '../data/gnatexeData';
 
 const GnatSparkAdaExe: React.FC = () => {
     return (
-        <div className="max-w-4xl mx-auto p-4">
+        <div className="mx-auto p-4 bg-slate-50">
             <h1 className="text-3xl font-bold mb-6">{tutorialData.title}</h1>
 
             {tutorialData.sections.map((section, index) => (
@@ -12,7 +12,8 @@ const GnatSparkAdaExe: React.FC = () => {
                     <p className="mt-4">{section.text}</p>
 
                     {section.code && (
-                        <pre className="bg-gray-900 text-white p-4 rounded-md shadow-md my-4">
+                        <pre className="bg-gray-900 text-white p-4 rounded-md shadow-md my-4 overflow-auto"
+                            style={{ maxHeight: '40vh', width: "80%", objectFit: 'contain' }}>
                             {section.code}
                         </pre>
                     )}
@@ -21,7 +22,8 @@ const GnatSparkAdaExe: React.FC = () => {
                         <img
                             src={section.image}
                             alt={`${section.heading}`}
-                            className="my-4 rounded-lg shadow-md"
+                            className=" mb-4 rounded-lg shadow-lg"
+                            style={{ maxHeight: '40vh', width: "60%", objectFit: 'contain' }}
                         />
                     )}
                 </section>

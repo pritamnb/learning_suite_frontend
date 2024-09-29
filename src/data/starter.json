@@ -1,0 +1,45 @@
+    {
+        "title": "Overview of SPARK Ada",
+        "description": "This guide is designed to help new users get up and running with the SPARK tools. It includes a simple SPARK example program to illustrate the use of GNAT Studio and GNATprove.",
+        "note": "The online version of this User's Guide applies to the latest development version of the SPARK toolset. If you're using an official release, some described features may not apply.",
+        "key_features": [
+            {
+                "feature": "Formal Verification",
+                "description": "SPARK Ada allows developers to prove the absence of runtime errors, such as buffer overflows, data races, and uninitialized variables, through mathematical methods. This verification process enhances software reliability and safety."
+            },
+            {
+                "feature": "Contract-Based Programming",
+                "description": "The language supports the definition of contracts using preconditions, postconditions, and invariants. This enables the specification of expected behavior for functions and procedures, making it easier to understand and maintain the code."
+            },
+            {
+                "feature": "Flow Analysis",
+                "description": "SPARK Ada provides static analysis tools that assess the flow of data and control in programs. This analysis can identify potential issues before the code is executed, reducing the likelihood of runtime errors."
+            },
+            {
+                "feature": "Non-Blocking and Deterministic Execution",
+                "description": "SPARK Ada encourages the design of systems that do not exhibit non-deterministic behavior, making it easier to reason about the software’s behavior under various conditions."
+            },
+            {
+                "feature": "Integration with GNAT",
+                "description": "SPARK Ada tools are integrated with the GNAT toolset, providing a comprehensive development environment for users. GNAT Studio offers a user-friendly interface to work with SPARK Ada code."
+            }
+        ],
+        "steps": [
+            {
+                "title": "Getting started",
+                "description": "main.ads: The specification declares the Add function in the Main package. This function takes two\n integers (X, Y) and returns their sum.\r\n A precondition is applied using Pre, ensuring the addition won't cause overflow or\nunderflow. Specifically:\n If Y is non-negative, X must not exceed Integer'Last - Y.\nIf Y is negative, X must not be\n smaller than Integer'First - Y.\n main.adb: The body defines the implementation of the Add function, which simply\n eturns X + Y.\nSPARK ensures formal verification of safe integer operations.",
+                "code": [
+                    {
+                        "name": "main.ads",
+                        "language": "ada",
+                        "content": "pragma SPARK_Mode(On); \n\npackage Main is\n   function Add (X, Y : Integer) return Integer\n     with Pre => (Y >= 0 and then X <= Integer'Last - Y) or else\n                 (Y < 0 and then X >= Integer'First - Y);\n     -- Precondition ensures no overflow or underflow occurs.\nend Main;"
+                    },
+                    {
+                        "name": "main.adb",
+                        "language": "ada",
+                        "content": "pragma SPARK_Mode(On); \n\npackage body Main is\n\n   function Add (X, Y : Integer) return Integer is\n   begin\n      return X + Y;\n   end Add;\n\nend Main;"
+                    }
+                ]
+            }
+        ]
+    }

@@ -9,19 +9,22 @@ interface CodeEditorProps {
     height?: string;
 }
 
-const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange, language = 'c++', height = '400px' }) => {
+const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange, language = 'ada', height = '300px' }) => {
     return (
         <Editor
             height={height}
             language={language}
             value={value}
             onChange={onChange}
-            theme="vs-dark" // Using a built-in theme
+            width={'60%'}
+            theme="vs-dark"
+
             options={{
                 minimap: { enabled: false },
                 fontSize: 14,
                 lineNumbers: 'on',
                 automaticLayout: true,
+
             }}
         />
     );

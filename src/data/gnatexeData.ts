@@ -115,17 +115,18 @@ end Main;
          code: ``,
          image: examine,
       },
-      {
-         heading: "Prove All in GNAT Studio",
-         text: `The "Prove All" option is used to verify all SPARK subprograms and packages in the project. It runs GNATprove across the entire project, ensuring that all parts of the code meet the specified contracts and are free of runtime errors. This is especially useful for large projects where multiple components interact.`,
-         code: ``,
-         image: proveAll,
-      },
+
       {
          heading: "Build and Run in GNAT Studio",
          text: `The "Build and Run" feature compiles the project and runs the main program. In this case, after the square function has been proven to be correct, the project can be built and run to see the function in action. This step involves the usual compilation process followed by program execution.`,
          code: ``,
          image: buildRun
+      },
+      {
+         heading: "Prove All in GNAT Studio",
+         text: `The "Prove All" option is used to verify all SPARK subprograms and packages in the project. It runs GNATprove across the entire project, ensuring that all parts of the code meet the specified contracts and are free of runtime errors. This is especially useful for large projects where multiple components interact.`,
+         code: ``,
+         image: proveAll,
       },
       {
          heading: "Conclusion",
