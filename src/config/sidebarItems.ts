@@ -1,4 +1,4 @@
-import { FaTachometerAlt, FaBook, FaTerminal, FaPlay } from 'react-icons/fa';
+import { FaTerminal, FaPlay } from 'react-icons/fa';
 import { MdOutlineCode, MdLibraryBooks } from 'react-icons/md';
 import { IoMdSettings } from 'react-icons/io';
 import { FaFileAlt } from 'react-icons/fa';
@@ -10,7 +10,6 @@ interface SidebarItem {
 }
 
 export const sidebarItems: SidebarItem[] = [
-    // { name: 'Dashboard', path: '/', icon: FaTachometerAlt },
     { name: 'GNAT installation', path: '/gnat-studio-guide', icon: IoMdSettings },
     { name: 'GNAT Prog Execution', path: '/gnat-studio-exe-guide', icon: FaFileAlt },
 
@@ -27,7 +26,6 @@ export const sidebarItems: SidebarItem[] = [
         subItems: [
             { name: 'Overview', path: '/introduction-spark-ada/overview' },
             { name: 'Flow Analysis', path: '/introduction-spark-ada/flow-analysis' },
-            { name: 'Proof of Program Integrity', path: '/introduction-spark-ada/proof-of-program-integrity' },
         ],
     },
     { name: 'Ada Playground', path: '/run-ada-code', icon: FaTerminal },
