@@ -3,25 +3,32 @@ import FileViewer from '../components/FileViewer';
 
 const files = [
     {
-        name: 'increment.ads',
+        name: 'main.ads',
         language: 'ada',
-        content: `procedure Main
-  (X : in out Integer)
-with
-  Global  => null,
-  Depends => (X => X),
-  Pre     => X < Integer'Last,
-  Post    => X = X'Old + 1;`,
+        content: `pragma SPARK_Mode(On); 
+
+package Main is
+   function Add (X, Y : Integer) return Integer
+     with Pre => (Y >= 0 and then X <= Integer'Last - Y) or else
+                 (Y < 0 and then X >= Integer'First - Y);
+     -- Precondition ensures no overflow or underflow occurs.
+end Main;
+`,
     },
     {
-        name: 'increment.adb',
+        name: 'main.adb',
         language: 'ada',
-        content: `procedure Main
-  (X : in out Integer)
-is
-begin
-  X := X + 1;
-end Main;`,
+        content: `pragma SPARK_Mode(On); 
+
+package body Main is
+
+   function Add (X, Y : Integer) return Integer is
+   begin
+      return X + Y;
+   end Add;
+
+end Main;   
+`,
     },
 ];
 
@@ -29,12 +36,14 @@ const SparkAdaBasics: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen">
             <main className="flex-grow">
-                <h1 className="text-4xl mb-4">Basics of SPARK Ada</h1>
+                <h1 className="text-4xl mb-4">SPARK Ada Playground</h1>
                 <p className="mb-4">
-                    SPARK is a subset of the Ada programming language designed for high-integrity and high-assurance systems. It includes a range of features for writing reliable and maintainable software.
+                    Directly in a web browser, a SPARK Ada playground is an interactive tool enabling users to write, run, and validate SPARK Ada code without local installation. Usually it includes code editors, real-time error checking, and formal verification tools including GNATprove. Learning and experimenting with SPARK Ada would be best suited for this configuration since it offers quick feedback and lets users investigate SPARK's features in a controlled and easily available surroundings.
                 </p>
                 <h2 className="text-2xl mb-2">Sample Files</h2>
-                <FileViewer files={files} buttonName={'Prove'} />
+                <div>
+                    <FileViewer files={files} buttonName={'Prove'} exe='prove' />
+                </div>
             </main>
         </div>
     );

@@ -8,7 +8,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ isSidebarOpen }) => {
     return (
-        <nav className={`bg-gray-800 z-10 fixed top-0 left-0 w-full text-white duration-300 ${isSidebarOpen ? 'pl-64' : 'pl-16'} pt-4 pb-4 pr-4`}>
+        <nav className={`bg-[#2980b9] z-10 fixed top-0 left-0 w-full text-white duration-300 ${isSidebarOpen ? 'pl-64' : 'pl-16'} pt-4 pb-4 pr-4`}>
             <ul className="flex space-x-4">
                 <li>
                     <Link to="/" className="hover:text-gray-300 flex pl-2">
@@ -16,10 +16,10 @@ const Navbar: React.FC<NavbarProps> = ({ isSidebarOpen }) => {
                         Home</Link>
                 </li>
                 <li>
-                    <Link to="/about" className="hover:text-gray-300">About</Link>
+                    <Link to="/about" className="hover:text-gray-100">About</Link>
                 </li>
                 <li>
-                    <Link to="/courses" className="hover:text-gray-300">Courses</Link>
+                    <Link to="/courses" className="hover:text-gray-100">Courses</Link>
                 </li>
             </ul>
         </nav>
