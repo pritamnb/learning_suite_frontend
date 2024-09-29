@@ -1,0 +1,47 @@
+[
+    {
+        "sectionName": "Imperative Language",
+        "topics": [
+            {
+                "topic": "Hello Learn Spark Ada!",
+                "description": "Here's a very simple imperative Ada program:",
+                "code": "with Ada.Text_IO;\r\n\r\nprocedure Greet is\r\nbegin\r\n   --  Print \"Hello Learn Spark Ada\" to the screen\r\n   Ada.Text_IO.Put_Line (\"Hello Learn Spark Ada\");\r\nend Greet;"
+            },
+            {
+                "topic": "If/Then/Else",
+                "description": "This section describes Ada's if statement and introduces several other fundamental language facilities including integer I/O, data declarations, and subprogram parameter modes.",
+                "code": "with Ada.Text_IO; use Ada.Text_IO;\r\nprocedure If_Then_Else_Example is\r\n    Age : Integer := 20; -- Example age value\r\nbegin\r\n    -- Check if the age is greater than or equal to 18\r\n    if Age >= 18 then\r\n        Put_Line(\"You are an adult.\");\r\n    else\r\n        Put_Line(\"You are a minor.\");\r\n    end if;\r\nend If_Then_Else_Example;"
+            },
+            {
+                "topic": "For loops",
+                "description": "The first kind of loop is the for loop, which allows iteration through a discrete range.",
+                "code": "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Greet_5a is\r\nbegin\r\n   for I in 1 .. 5 loop\r\n      --  Put_Line is a procedure call\r\n      Put_Line (\" Learn Spark Ada\"\r\n                  & Integer'Image (I));\r\n      --        ^ Procedure parameter\r\n   end loop;\r\nend Greet_5a;"
+            },
+            {
+                "topic": "For loops with range",
+                "description": "",
+                "code": "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Greet_5a_Reverse is\r\nbegin\r\n   for I in reverse 1 .. 5 loop\r\n      Put_Line (\" Learn Spark Ada\"\r\n                & Integer'Image (I));\r\n   end loop;\r\nend Greet_5a_Reverse;"
+            },
+            {
+                "topic": "Bare Loops",
+                "description": "The simplest loop in Ada is the bare loop, which forms the foundation of the other kinds of Ada loops.",
+                "code": "with Ada.Text_IO;\r\n\r\nprocedure Greet is\r\nbegin\r\n   --  Print \"Hello Learn Spark Ada\" to the screen\r\n   Ada.Text_IO.Put_Line (\"Hello Learn Spark Ada\");\r\nend Greet;"
+            },
+            {
+                "topic": "While Loops",
+                "description": "We initialize a Counter variable with the value 1. The while loop checks if Counter is less than or equal to 5 and prints the value of Counter in each iteration.Inside the loop, the Counter is incremented by 1 after each iteration, and the loop continues until Counter exceeds 5",
+                "code": "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Main is\r\n   Counter : Integer := 1;  -- Initialize the counter\r\nbegin\r\n   -- While loop to print numbers from 1 to 5\r\n   while Counter <= 5 loop\r\n      Put_Line (\"Counter = \" & Integer'Image (Counter));\r\n      Counter := Counter + 1;  -- Increment the counter\r\n   end loop;\r\nend Main;"
+            },
+            {
+                "topic": "Case statement",
+                "description": "Ada's case statement is similar to the C and C++ switch statement, but with some important differences.",
+                "code": "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Main is\r\n   Age : Integer := 43;  -- Example age value\r\nbegin\r\n   -- Case statement to check the age\r\n   case Age is\r\n      when 0 .. 12 =>\r\n         Put_Line (\"You are a child.\");\r\n      when 13 .. 17 =>\r\n         Put_Line (\"You are a teenager.\");\r\n      when 18 .. 64 =>\r\n         Put_Line (\"You are an adult.\");\r\n      when 65 .. Integer'Last =>\r\n         Put_Line (\"You are a senior.\");\r\n      when others =>\r\n         Put_Line (\"Invalid age.\");\r\n   end case;\r\nend Main;"
+            },
+            {
+                "topic": "Declarative regions",
+                "description": "Ada delineates a distinct grammatical division between declarations, which establish identifiers for things utilized in the program, and statements, which execute the processing. Regions within the program where declarations can occur are referred to as declarative regions. In any subprogram, the segment between the is and the begin constitutes a declarative region. Variables, constants, types, inner subprograms, and other entities may be present. \r\n Here's a simple example where we declare an integer variable N, initialize it, and then add 5 to it:",
+                "code": "with Ada.Text_IO; use Ada.Text_IO;\r\n\r\nprocedure Main is\r\n   N : Integer;\r\nbegin\r\n   -- Initialize the variable N\r\n   N := 10;\r\n   Put_Line (\"The initial value of N is \" & Integer'Image (N));\r\n\r\n   -- Add 5 to N\r\n   N := N + 5;\r\n\r\n   -- Print the new value of N\r\n   Put_Line (\"The value of N now is \" & Integer'Image (N));\r\nend Main;"
+            }
+        ]
+    }
+]

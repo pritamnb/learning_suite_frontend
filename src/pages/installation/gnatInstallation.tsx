@@ -86,11 +86,20 @@ const GnatStudioGuide: React.FC = () => {
                             src={step.image}
                             alt={`Step ${step.step}`}
                             className="max-w-full h-auto mb-4 rounded-lg shadow-lg"
-                            style={{ maxHeight: '80vh', objectFit: 'contain' }}
+                            style={{ maxHeight: '60vh', objectFit: 'contain' }}
                         />
                     )}
                 </div>
             ))}
+
+            <div className="flex items-start p-4 mb-4 bg-yellow-50 border-l-4 border-yellow-400 shadow-md rounded-lg">
+                <FaExclamationTriangle className="h-6 w-6 text-yellow-500 mr-3 flex-shrink-0" />
+                <div>
+                    <p className="font-semibold text-yellow-800"> Note :</p>
+                    <p className="text-yellow-700">The learning suite offers a thorough manual for configuring GNAT Studio on the course's designated operating system. If you would want to install GNAT Studio but use another operating system, AdaCore's guidelines should help you. See the official GNAT Studio material for installation guidelines particular to your operating system in more section:<div className="mb-4">{renderTextWithLinksAndCode('https://www.adacore.com/download/more')}</div>
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };

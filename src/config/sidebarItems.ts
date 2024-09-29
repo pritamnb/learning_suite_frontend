@@ -1,7 +1,7 @@
-import { FaTachometerAlt, FaBook, FaTerminal, FaPlay } from 'react-icons/fa';
+import { FaTerminal, FaPlay } from 'react-icons/fa';
 import { MdOutlineCode, MdLibraryBooks } from 'react-icons/md';
 import { IoMdSettings } from 'react-icons/io';
-
+import { FaFileAlt } from 'react-icons/fa';
 interface SidebarItem {
     name: string;
     path?: string;
@@ -10,17 +10,14 @@ interface SidebarItem {
 }
 
 export const sidebarItems: SidebarItem[] = [
-    { name: 'Dashboard', path: '/', icon: FaTachometerAlt },
-    { name: 'Courses', path: '/courses', icon: FaBook },
     { name: 'GNAT installation', path: '/gnat-studio-guide', icon: IoMdSettings },
+    { name: 'GNAT Prog Execution', path: '/gnat-studio-exe-guide', icon: FaFileAlt },
+
     {
         name: '+ Introduction to Ada',
         icon: MdOutlineCode,
         subItems: [
-            { name: 'If/Then/Else', path: '/introduction-ada/if-then-else' },
-            { name: 'Case', path: '/introduction-ada/case' },
-            { name: 'Conditional', path: '/introduction-ada/conditional' },
-            { name: 'Declarative', path: '/introduction-ada/declarative' },
+            { name: 'Imperative language', path: '/introduction-ada/imperative' },
         ],
     },
     {
@@ -29,9 +26,8 @@ export const sidebarItems: SidebarItem[] = [
         subItems: [
             { name: 'Overview', path: '/introduction-spark-ada/overview' },
             { name: 'Flow Analysis', path: '/introduction-spark-ada/flow-analysis' },
-            { name: 'Proof of Program Integrity', path: '/introduction-spark-ada/proof-of-program-integrity' },
         ],
     },
-    { name: 'Run Ada Code', path: '/run-ada-code', icon: FaTerminal },
-    { name: 'Run SPARK Ada Code', path: '/spark-ada-basics', icon: FaPlay },
+    { name: 'Ada Playground', path: '/run-ada-code', icon: FaTerminal },
+    { name: 'SPARK Ada Playground', path: '/spark-ada-basics', icon: FaPlay },
 ];

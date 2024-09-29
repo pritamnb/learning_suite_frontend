@@ -24,13 +24,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Navbar isSidebarOpen={isSidebarOpen} />
 
                 <main
-                    className={`flex-grow pr-8 bg-slate-200 mt-14 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-16'
+                    className={`flex-grow pr-8 max-w-6xl bg-slate-200 mt-14 transition-all pl-10 duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-16'
                         }`}
                 >
                     {children}
                 </main>
 
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </div>
     );
